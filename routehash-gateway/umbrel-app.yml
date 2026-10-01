@@ -1,0 +1,114 @@
+manifestVersion: 1.1
+id: routehash-gateway
+category: bitcoin
+name: RouteHash Gateway
+version: "0.1.0"
+tagline: DATUM next to your Knots, pointed at RouteHash
+description: >-
+  ⚙️ Please read the important setup instructions at the bottom of this page.
+
+
+  Already run Bitcoin Knots on Umbrel? This installs DATUM next to it so you can
+  join RouteHash as a segment. ASICs stay on this gateway’s miner port (23339).
+  Never put 28915 on the ASIC.
+
+
+  Pool Host is prefilled `pool.routehash.com:28915`. Independent operators leave
+  Pool Host blank after install, or skip this app. Hash-only miners skip this
+  app; firmware stays `stratum.routehash.com:23335`.
+
+
+  This app does not ship Knots. It needs the Umbrel **Bitcoin Knots** app at
+  **29.4.2** (store app 1.2.18, Léo Haf / Retropex). If the official store still
+  shows Bitcoin Knots 1.2.13, switch that store copy to Léo’s branch
+  `v29.4.2.knots20260508` and Update before installing this.
+
+
+  If you already run Datum (BLAKE2b) Companion on Paul’s Knots, skip this app.
+  Paste Pool Host `pool.routehash.com`, Port `28915`, and the pubkey from
+  https://app.routehash.com/pool/connect into that companion.
+
+
+  🛠️ SET-UP INSTRUCTIONS
+
+
+  ### Bitcoin Knots
+
+
+  Install **Bitcoin Knots** 29.4.2 first and let it finish sync. This app
+  connects to it automatically. A full archival node is not required for mining.
+
+
+  ### Configuring the gateway
+
+
+  Open this app. Set your Mining Bitcoin Address under the **Config** tab before
+  hashing. Credentials: right-click the app icon → Show default credentials.
+  Username is `admin`.
+
+
+  Confirm Pool Host `pool.routehash.com`, Pool Port `28915`, Pool Pubkey filled,
+  Collaborative reward sharing = prefer, Pool Pass User = On, Pool Pass Workers
+  = Off.
+
+
+  Independent / solo: clear Pool Host.
+
+
+  ### Connecting your miner
+
+
+  In the miner’s own web interface, set the pool to your server’s IP on port
+  23339:
+
+
+    - Stratum URL: `stratum+tcp://192.168.1.50:23339`
+
+    - Username/Worker: `youraddress.workername`
+
+    - Password: leave blank, or `d=2048` if the miner requires a password
+
+
+  **Use your server’s IP address, not a .local name.** Most ASIC firmware has no
+  mDNS resolver.
+
+
+  Port 23339 is used so this app can sit beside official DATUM (23334) and Paul’s
+  companions (23336 / 23338).
+developer: RouteHash
+website: https://app.routehash.com/pool/connect
+dependencies:
+  - bitcoin-knots
+repo: https://github.com/iohzrd/datum_gateway
+support: https://app.routehash.com/pool/connect
+port: 7154
+# Community stores must supply full URLs. Umbrel only auto-prefixes the official store.
+icon: https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-gateway/icon.png
+gallery:
+  - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-gateway/gallery/1.png
+path: ""
+defaultUsername: "admin"
+deterministicPassword: true
+releaseNotes: >-
+  First RouteHash Gateway for Umbrel. Same DATUM as the StartOS package: iohzrd
+  7491a509 next to Bitcoin Knots 29.4.2, Pool Host prefilled to
+  pool.routehash.com:28915, prefer, Pool Pass User on, Workers off. Miner port
+  23339. Independent operators clear Pool Host.
+submitter: RouteHash
+submission: https://app.routehash.com/pool/connect
+widgets:
+  - id: "stats"
+    type: "three-stats"
+    refresh: "30s"
+    endpoint: "gateway:7152/umbrel-api"
+    link: ""
+    example:
+      type: "three-stats"
+      link: ""
+      items:
+        - title: "Connections"
+          text: "2"
+          subtext: "Worker"
+        - title: "Hashrate"
+          text: "1.8"
+          subtext: "TH/s"

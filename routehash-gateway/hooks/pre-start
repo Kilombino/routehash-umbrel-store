@@ -1,0 +1,136 @@
+#!/usr/bin/env bash
+
+# Patch datum_gateway_config.json with host-only values: Knots RPC, dashboard
+# password, LAN advertised_host. The gateway runs directly against this file so
+# Config-page saves survive restart. Do not rewrite pool_host, reward sharing,
+# or pass-user / pass-workers after first install.
+
+set -euo pipefail
+
+APP_DIR="${APP_DATA_DIR:-$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")}"
+DATUM_CONFIG_FILE="${APP_DIR}/data/settings/datum_gateway_config.json"
+DESIRED_OWNER="1000:1000"
+
+ROUTEHASH_POOL_PUBKEY="b1ccb80129763858d52249e4fef4f9d6aff97921543abf0559e03819a03aab1093872ef7b8f0481635d0221485379948a812c3d2ffcec3fe7cbc4f8ccec1d735"
+DATUM_BUILTIN_POOL_PUBKEY="f21f2f0ef0aa1970468f22bad9bb7f4535146f8e4a8f646bebc93da3d89b1406f40d032f09a417d94dc068055df654937922d2c89522e3e8f6f0e649de473003"
+
+if [ ! -f "${DATUM_CONFIG_FILE}" ]; then
+  echo "DATUM configuration file missing; writing RouteHash defaults."
+  mkdir -p "$(dirname "${DATUM_CONFIG_FILE}")"
+  cat > "${DATUM_CONFIG_FILE}" <<'DATUMCONF'
+{
+  "bitcoind": {
+    "rpcuser": "auto-configure-on-install",
+    "rpcpassword": "auto-configure-on-install",
+    "rpcurl": "auto-configure-on-install"
+  },
+  "datum": {
+    "pool_host": "pool.routehash.com",
+    "pool_port": 28915,
+    "pool_pubkey": "b1ccb80129763858d52249e4fef4f9d6aff97921543abf0559e03819a03aab1093872ef7b8f0481635d0221485379948a812c3d2ffcec3fe7cbc4f8ccec1d735",
+    "pooled_mining_only": false,
+    "pool_pass_full_users": true,
+    "pool_pass_workers": false,
+    "protocol_v3": true
+  },
+  "mining": {
+    "pool_address": "",
+    "coinbase_tag_primary": "",
+    "coinbase_tag_secondary": "RouteHash",
+    "pow_algorithm": "auto",
+    "allow_hasher_time_rolling": false
+  },
+  "stratum": {
+    "listen_port": 23339,
+    "username_modifiers": {}
+  },
+  "api": {
+    "listen_port": 7152,
+    "modify_conf": true,
+    "admin_password": "umbrel"
+  },
+  "logger": {
+    "log_level_console": 2
+  }
+}
+DATUMCONF
+fi
+
+rpc_user="${APP_BITCOIN_KNOTS_RPC_USER:-${APP_BITCOIN_RPC_USER:-}}"
+rpc_pass="${APP_BITCOIN_KNOTS_RPC_PASS:-${APP_BITCOIN_RPC_PASS:-}}"
+node_ip="${APP_BITCOIN_KNOTS_NODE_IP:-${APP_BITCOIN_NODE_IP:-}}"
+rpc_port="${APP_BITCOIN_KNOTS_RPC_PORT:-${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT:-${APP_BITCOIN_RPC_PORT:-}}}"
+
+missing=""
+[ -z "${rpc_user}" ] && missing="${missing} APP_BITCOIN_KNOTS_RPC_USER"
+[ -z "${rpc_pass}" ] && missing="${missing} APP_BITCOIN_KNOTS_RPC_PASS"
+[ -z "${node_ip}" ] && missing="${missing} APP_BITCOIN_KNOTS_NODE_IP"
+[ -z "${rpc_port}" ] && missing="${missing} APP_BITCOIN_KNOTS_RPC_PORT"
+if [ -n "${missing}" ]; then
+  echo "Missing Bitcoin Knots RPC env:${missing}. Install bitcoin-knots 29.4.2. Exiting."
+  exit 1
+fi
+
+echo "Pointing DATUM at Bitcoin Knots ${node_ip}:${rpc_port}."
+
+jq --arg user "${rpc_user}" \
+   --arg pass "${rpc_pass}" \
+   --arg url "${node_ip}:${rpc_port}" \
+   '.bitcoind.rpcuser = $user |
+    .bitcoind.rpcpassword = $pass |
+    .bitcoind.rpcurl = $url' \
+   "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+
+if jq -e '.api.admin_password == "umbrel"' "${DATUM_CONFIG_FILE}" > /dev/null; then
+  jq --arg password "${APP_PASSWORD:-}" '.api.admin_password = $password' \
+     "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+fi
+
+if ! jq -e '.api.modify_conf' "${DATUM_CONFIG_FILE}" > /dev/null; then
+  jq '.api.modify_conf = true' \
+     "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+fi
+
+HOST_IP="$(ip route get 1.1.1.1 2>/dev/null | awk '{for(i=1;i<=NF;i++) if($i=="src"){print $(i+1); exit}}')"
+if [ -n "${HOST_IP}" ]; then
+  echo "Telling the gateway to advertise ${HOST_IP} as the address for miners."
+  jq --arg host "${HOST_IP}" '.stratum.advertised_host = $host' \
+     "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+else
+  echo "Could not determine this device's LAN address; the status page will fall back to the address you open it with."
+fi
+
+if jq -e '.mining.pool_address | select(. == "enter your bitcoin address")' "${DATUM_CONFIG_FILE}" > /dev/null; then
+  jq '.mining.pool_address = ""' \
+     "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+fi
+
+CURRENT_POOL_PUBKEY="$(jq -r '.datum.pool_pubkey // ""' "${DATUM_CONFIG_FILE}" | tr 'A-Z' 'a-z')"
+if [ -z "${CURRENT_POOL_PUBKEY}" ] || [ "${CURRENT_POOL_PUBKEY}" = "${DATUM_BUILTIN_POOL_PUBKEY}" ]; then
+  echo "Setting RouteHash pool public key."
+  jq --arg key "${ROUTEHASH_POOL_PUBKEY}" '.datum.pool_pubkey = $key' \
+     "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+fi
+
+POOL_HOST="$(jq -r '.datum.pool_host // ""' "${DATUM_CONFIG_FILE}")"
+POOL_PUBKEY_SET="$(jq -r '(.datum // {}) | has("pool_pubkey")' "${DATUM_CONFIG_FILE}")"
+POOL_PUBKEY="$(jq -r '.datum.pool_pubkey // ""' "${DATUM_CONFIG_FILE}")"
+
+if [ -n "${POOL_HOST}" ] && [ "${POOL_PUBKEY_SET}" = "true" ] \
+   && ! printf '%s' "${POOL_PUBKEY}" | grep -Eq '^[0-9a-fA-F]{128}$'; then
+  echo "Pool host is set to '${POOL_HOST}', but the pool public key is not 128 hex characters."
+  echo "The gateway exits on that, and its dashboard is the only place to correct it, so pooled mining is off for this start."
+  jq '.datum["pool_host(old)"] = .datum.pool_host |
+      .datum.pool_host = "" |
+      .datum.pooled_mining_only = false' \
+     "${DATUM_CONFIG_FILE}" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "${DATUM_CONFIG_FILE}"
+fi
+
+if [ "$(id -u)" = "0" ]; then
+  chown "${DESIRED_OWNER}" "$(dirname "${DATUM_CONFIG_FILE}")"
+  chown "${DESIRED_OWNER}" "${DATUM_CONFIG_FILE}"
+else
+  echo "Skipping chown (not root); Umbrel runs this hook as root."
+fi
+
+echo "DATUM configuration updated successfully."

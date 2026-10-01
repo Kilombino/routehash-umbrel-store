@@ -1,0 +1,35 @@
+{
+  "bitcoind": {
+    "rpcuser": "auto-configure-on-install",
+    "rpcpassword": "auto-configure-on-install",
+    "rpcurl": "auto-configure-on-install"
+  },
+  "datum": {
+    "pool_host": "pool.routehash.com",
+    "pool_port": 28915,
+    "pool_pubkey": "b1ccb80129763858d52249e4fef4f9d6aff97921543abf0559e03819a03aab1093872ef7b8f0481635d0221485379948a812c3d2ffcec3fe7cbc4f8ccec1d735",
+    "pooled_mining_only": false,
+    "pool_pass_full_users": true,
+    "pool_pass_workers": false,
+    "protocol_v3": true
+  },
+  "mining": {
+    "pool_address": "",
+    "coinbase_tag_primary": "",
+    "coinbase_tag_secondary": "RouteHash",
+    "pow_algorithm": "auto",
+    "allow_hasher_time_rolling": false
+  },
+  "stratum": {
+    "listen_port": 23339,
+    "username_modifiers": {}
+  },
+  "api": {
+    "listen_port": 7152,
+    "modify_conf": true,
+    "admin_password": "umbrel"
+  },
+  "logger": {
+    "log_level_console": 2
+  }
+}

@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: $APP_ROUTEHASH_GATEWAY_IP
+      APP_PORT: 7152
+
+  # Multi-arch manifest list (amd64 + arm64) from GHCR push 2026-10-01.
+  gateway:
+    image: ghcr.io/routehash-com/datum-gateway:7491a509@sha256:8f09fbe10fb9183390061e316279401360b464a1b1b4d2054d3ac100feeaa6c7
+    entrypoint: ["/usr/local/bin/datum_gateway"]
+    command: ["-c", "/app/conf/datum_gateway_config.json"]
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 30s
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+    volumes:
+      - ${APP_DATA_DIR}/data/settings/:/app/conf/
+    ports:
+      # 23334 official DATUM, 23335 RouteHash hash market, 23336 Paul Blake2b DATUM, 23338 Paul SHA256 DATUM.
+      - "23339:23339"
+    networks:
+      default:
+        ipv4_address: $APP_ROUTEHASH_GATEWAY_IP
