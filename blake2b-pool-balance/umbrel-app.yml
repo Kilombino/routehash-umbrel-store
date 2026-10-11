@@ -1,0 +1,81 @@
+manifestVersion: 1.1
+id: blake2b-pool-balance
+category: bitcoin
+name: Blake2b Pool Balance
+version: "0.1.0"
+tagline: Opt-in Blake2b Pool Host chooser beside your DATUM gateway
+description: >-
+  Beta. A live Umbrel install is not confirmed yet.
+
+
+  Already run a DATUM gateway on this Umbrel? This sits beside it. It does not
+  install DATUM and it does not replace RouteHash Gateway. ASICs stay on that
+  gateway's miner port. RouteHash Gateway uses 23339. This app has no miner
+  port. Never put 28915 on an ASIC.
+
+
+  Pick Node Runner or Pool Operator. A node runner completes only the local
+  DATUM form. A pool operator only lists a pool. Do not opt in the DATUM that
+  is the pool. That would send every miner on that pool to some other pool.
+  Personal mining uses a second DATUM.
+
+
+  Opt in before Pool Host can move. Local max percent is your limit, not the
+  pool cap. An empty local max percent stores 30 on this machine. A blank home
+  Pool Host is copied from your DATUM gateway on the next pass. The relay list starts with
+  wss://relay.routehash.com. Add your own relay on the next line. On this Umbrel,
+  install Nostr Relay from the App Store under Social and paste the relay URL
+  it shows. On a LAN that URL is often ws:// and port 4848. This list does not
+  grow by itself. A wss URL needs a certificate for that name. A Start9 trusts
+  its own certificate on the LAN. Turn Public on for StartTunnel, or forward
+  the nostr port on your router. A Nostr client reads a relay. This list stores
+  the relay address. Kinds 30080 and 30081 must stay allowed.
+
+
+  House Pool is the last stop and is already filled in. The host is
+  pool.routehash.com and the port is 28915. Clear it if you do not want that
+  fallback. After 30 minutes on House Pool, this app stays there until your
+  home Pool Host fits again.
+
+
+  Open the app before a rig can move. On the DATUM dashboard open Interface,
+  then Web UI, then Local. Copy the address, the API Listen Port, and the API
+  Password. Turn on Allow API Config Writes. This app cannot turn that switch
+  on. For RouteHash Gateway that address is http://10.21.21.71:7152 and the
+  dashboard user is admin. Leave the address blank and this app does not write.
+
+
+  Skip publish if you only run a DATUM gateway. The 320-character private key
+  proves you own the pool. On StartOS it is the file ratum-prime.key in the
+  RATUM Prime service data. That service writes the file the first time it
+  starts and does not show it. Show Pool Pubkey cannot sign a cap. A DATUM
+  gateway does not have this file. The cap is sent first. The listing is sent
+  only after a relay accepts that cap. A listing with no cap does not move
+  anyone. Publish again within 24 hours.
+
+
+  Pool size is read from mempool.guide. When the Node RPC address is set, the
+  global XBT hashrate comes from that node. When it is blank, the total comes
+  from mempool.guide.
+  Without a chain sample for a tag, another pool is not an overflow target.
+
+
+  Hashers who do not run a node skip this app.
+developer: RouteHash
+website: https://app.routehash.com/pool/connect
+dependencies: []
+repo: https://github.com/RouteHash-com/blake2b-pool-balance
+support: https://app.routehash.com/pool/connect
+port: 7156
+icon: https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/blake2b-pool-balance/icon.png
+gallery:
+  - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/blake2b-pool-balance/gallery/1.png
+path: ""
+releaseNotes: >-
+  First Umbrel package (beta). Opt-in Blake2b Pool Host chooser beside
+  the DATUM gateway you already run. It does not replace RouteHash Gateway.
+  The relay list starts with the RouteHash relay. House Pool is already filled
+  in as the last stop. Local max percent refuses a number above 30. An empty
+  local max percent stores 30.
+submitter: RouteHash
+submission: https://app.routehash.com/pool/connect

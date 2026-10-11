@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+
+if [[ -z "${APP_DATA_DIR:-}" ]]; then
+  echo "APP_DATA_DIR is required"
+  exit 1
+fi
+
+dest="${APP_DATA_DIR}/data"
+mkdir -p "$dest"
+src="$(cd "$(dirname "$0")/.." && pwd)/data/chooser.json"
+if [[ ! -f "$dest/chooser.json" ]]; then
+  cp "$src" "$dest/chooser.json"
+  chmod 600 "$dest/chooser.json"
+fi
