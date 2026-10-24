@@ -12,4 +12,6 @@ Then install **RouteHash Gateway**. It needs Umbrel **Bitcoin Knots** 29.4.2 (st
 
 **Blake2b Pool Balance** is the second app. It does not replace RouteHash Gateway and it does not install DATUM. It sits beside the gateway you already run. Settings page port **7156**. Copy says beta until a live Umbrel install is confirmed. ASICs stay on the gateway miner port. Never put 28915 on an ASIC.
 
+**Autarki** is the third app. One wallet and one shop. It does not replace RouteHash Gateway or Blake2b Pool Balance. Umbrel builds it from the binaries in [autarki/bin](autarki/bin). Source: https://github.com/RouteHash-com/autarki
+
 The full description, both roles, and the Nostr relay steps are in [blake2b-pool-balance/README.md](blake2b-pool-balance/README.md).

@@ -1,0 +1,29 @@
+manifestVersion: 1.1
+id: autarki
+category: bitcoin
+name: Autarki
+version: "0.1.0"
+tagline: No platform. Just the sale.
+description: >-
+  Autarki is one wallet and one shop on this server. The first screen creates the wallet. Write the 24 words on paper before you leave that screen. A password for this copy is optional. If you leave it blank, the 24 words stay in the clear, and a backup of this app is then the seed.
+
+
+  Ordinary XBT and SHA-256d addresses use Autarki's servers until you connect your own node under Settings, then Coin Nodes. Until then the page gives a normal address. A silent-payment code needs your own node. XBTC has no public server in this package. Connect that node under Settings, then Coin Nodes, when you use it.
+
+
+  Umbrel's Bitcoin app is Bitcoin Core. This package does not use it as the XBT node.
+releaseNotes: ""
+developer: Autarki
+website: https://github.com/RouteHash-com/autarki
+dependencies: []
+repo: https://github.com/RouteHash-com/autarki
+support: https://github.com/RouteHash-com/autarki/issues
+port: 8473
+# Community stores must supply a full icon URL. Umbrel only auto-prefixes the official store.
+icon: https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/autarki/icon.png
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: Autarki
+submission: https://github.com/RouteHash-com/autarki
