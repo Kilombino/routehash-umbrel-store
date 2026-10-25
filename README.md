@@ -56,7 +56,7 @@ The notes are in [routehash-blake2b-pool-balance/README.md](routehash-blake2b-po
 
 ## Check a download
 
-An app folder that ships a program has a `SHA256SUMS` file. From that folder:
+The Autarki folder ships a compiled program and a `SHA256SUMS` file. From `routehash-autarki`:
 
 ```
 sha256sum -c SHA256SUMS
@@ -66,6 +66,10 @@ A matching file prints `OK`.
 
 ## What this store publishes
 
-This store publishes Umbrel install files. For Autarki that is the compiled program, the image recipe, and the listing. The program source is not in this store.
+This store publishes the Umbrel install files for the three apps above. Each app has its own folder. Umbrel reads that folder as the listing.
 
-The package page is [https://github.com/RouteHash-com/autarki](https://github.com/RouteHash-com/autarki). That page has the StartOS packages, the Umbrel image archives, the checksums, and the pictures. It does not contain the program source.
+**Autarki - Wallet / Nostr Shop** is [`routehash-autarki`](routehash-autarki). That folder has the compiled program, the image recipe, and the listing. The program source is not in this store. The package page is [https://github.com/RouteHash-com/autarki](https://github.com/RouteHash-com/autarki). That page has the StartOS packages, the Umbrel image archives, the checksums, and the pictures.
+
+**RouteHash Datum Gateway** is [`routehash-gateway`](routehash-gateway). That folder has the listing and a DATUM setup already pointed at RouteHash. Umbrel installs the gateway image named in that folder. The StartOS package and the overlay notes are on [https://github.com/RouteHash-com/routehash-start9-gateway](https://github.com/RouteHash-com/routehash-start9-gateway).
+
+**Blake2b Pool Balance** is [`routehash-blake2b-pool-balance`](routehash-blake2b-pool-balance). That folder has the listing and the program. Umbrel builds it on the machine from the recipe in the folder. The StartOS package is on [https://github.com/RouteHash-com/blake2b-pool-balance](https://github.com/RouteHash-com/blake2b-pool-balance).
