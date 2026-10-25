@@ -21,7 +21,7 @@ Umbrel keeps the copy it already downloaded. If an app from the list below is mi
 
 Autarki is the wallet and the Nostr shop. A person at a counter, or a shop that takes orders over Nostr, uses it to make the sale and hold the wallet on this Umbrel. The words, the shop book, and the sale stay on that machine.
 
-It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. This listing is version 0.1.2, and it installs on umbrelOS 1.x and on umbrelOS 2.0. Umbrel builds the program that matches the machine. The StartOS packages for an AMD or Intel server and for a Raspberry Pi are on the package page.
+It runs on an AMD or Intel Umbrel, on Umbrel Home, on Umbrel Pro, and on a Raspberry Pi. This listing is version 0.1.3, and it installs on umbrelOS 1.x and on umbrelOS 2.0. Umbrel Home and Umbrel Pro are Intel, so they use the amd64 program. A Raspberry Pi uses the arm64 program. The StartOS packages for an AMD or Intel server and for a Raspberry Pi are on the package page.
 
 This install does not require Bitcoin Knots or Bitcoin Core. Until you add your own node, ordinary XBT and SHA-256d use Autarki's public servers, and Nostr uses Autarki's public node. Add a node later on the page, under Settings, then Coin Nodes. A silent-payment code needs your own node. XBTC uses Autarki's public node until you connect your own. The StartOS package and the Umbrel package do not include that node.
 
@@ -37,9 +37,9 @@ DATUM lets the Knots node you run build the block. The ASIC asks this gateway fo
 
 Use this app when the ASICs are yours and the Knots node is yours. A hash-only miner that does not run a node leaves the firmware on `stratum.routehash.com:23335` and skips this app. A person who already runs one DATUM pastes the RouteHash pool into that gateway. One DATUM on the machine is the setup. Two gateways means two miner ports.
 
-This listing is version 0.1.1. It installs on umbrelOS 1.x and on umbrelOS 2.0. It is the same app as 0.1.0, so an update keeps the saved gateway config. Umbrel pulls a pinned image. It does not build the gateway on the machine.
+This listing is version 0.1.2. It installs on umbrelOS 1.x and on umbrelOS 2.0. It is the same app as 0.1.1, so an update keeps the saved gateway config. Umbrel pulls a pinned image. That image contains an amd64 build and an arm64 build. It does not build the gateway on the machine.
 
-This install does require the official Umbrel app `bitcoin-knots`, because the gateway reads block templates from that node. That official listing is version 1.2.13, Knots v29.4.knots20260508. It follows Bitcoin and does not include Blake2b, so a Blake2b ASIC does not get Blake2b work from it. Leave that app in place when Lightning or Electrs uses it. This gateway does not attach to Knots (BLAKE2b) Companion. If Datum (BLAKE2b) Companion is already installed, use that gateway and skip this app. The Umbrel image is built for an AMD or Intel machine and for a Raspberry Pi, including Umbrel Home. The StartOS package on [the gateway page](https://github.com/RouteHash-com/routehash-start9-gateway) is the AMD or Intel package. A Raspberry Pi running StartOS does not have a gateway package in that release. A Raspberry Pi running Umbrel installs this app from this store. The listing stays beta until a live Umbrel install is confirmed.
+This install does require the official Umbrel app `bitcoin-knots`, because the gateway reads block templates from that node. That official listing is version 1.2.13, Knots v29.4.knots20260508. It follows Bitcoin and does not include Blake2b, so a Blake2b ASIC does not get Blake2b work from it. Leave that app in place when Lightning or Electrs uses it. This gateway does not attach to Knots (BLAKE2b) Companion. If Datum (BLAKE2b) Companion is already installed, use that gateway and skip this app. Umbrel Home and Umbrel Pro are Intel, so they pull the amd64 image. A Raspberry Pi pulls the arm64 image from the same pin. The StartOS package on [the gateway page](https://github.com/RouteHash-com/routehash-start9-gateway) is the AMD or Intel package. A Raspberry Pi running StartOS does not have a gateway package in that release. A Raspberry Pi running Umbrel installs this app from this store. The listing stays beta until a live Umbrel install is confirmed.
 
 The setup notes are in [routehash-gateway](routehash-gateway).
 
@@ -51,7 +51,7 @@ About once a minute it reads the pools that have published a size limit. When th
 
 It sits beside the DATUM gateway you already run. It does not install DATUM, and it does not replace RouteHash Datum Gateway. It has no miner port. The ASICs stay on the gateway. The settings page is port **7156**.
 
-Umbrel builds this app on the machine, from this app folder, so it runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. This listing is version 0.1.2. It is the same app as 0.1.1, and it installs on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs it from this store.
+Umbrel builds this app on the machine, from this app folder. Umbrel Home and Umbrel Pro are Intel, so they build the amd64 image. A Raspberry Pi builds the arm64 image. This listing is version 0.1.3. It is the same app as 0.1.2, and it installs on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs it from this store.
 
 The notes are in [routehash-blake2b-pool-balance/README.md](routehash-blake2b-pool-balance/README.md).
 

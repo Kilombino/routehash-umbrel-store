@@ -2,14 +2,16 @@ manifestVersion: 1.1
 id: routehash-gateway
 category: bitcoin
 name: RouteHash Datum Gateway
-version: "0.1.1"
+version: "0.1.2"
 tagline: Your ASICs and your Knots, pointed at RouteHash
 description: >-
   ⚙️ Please read the important setup instructions at the bottom of this page.
 
 
-  This listing is version 0.1.1. It installs on umbrelOS 1.x and umbrelOS 2.0.
-  It is the same app as 0.1.0, so an update keeps the saved gateway config.
+  This listing is version 0.1.2. It installs on umbrelOS 1.x and umbrelOS 2.0.
+  It is the same app as 0.1.1, so an update keeps the saved gateway config.
+  A Raspberry Pi pulls the arm64 image from the same pin. Umbrel Home and
+  Umbrel Pro are Intel, so they pull the amd64 image.
   Beta until a live Umbrel install is confirmed. Umbrel opens the tile on port
   7154 and forwards it to the API on port 7152. Another app on this Umbrel
   reaches that API at http://10.21.21.71:7152.
@@ -98,11 +100,10 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  Version 0.1.1 keeps app id routehash-gateway, so the data from 0.1.0 stays.
-  It installs on umbrelOS 1.x and umbrelOS 2.0. This app pulls a pinned image
-  and does not build on the Umbrel. The start script now writes the Knots RPC
-  address as an http URL. The home-screen stats widget is gone because this
-  image has no Umbrel widget endpoint. Miner port 23339. Pool Host stays
+  Version 0.1.2 keeps app id routehash-gateway, so the data from 0.1.1 stays.
+  The pinned image is unchanged. It contains an amd64 image and an arm64 image.
+  A Raspberry Pi pulls the arm64 image. Umbrel Home and Umbrel Pro are Intel
+  and pull the amd64 image. Miner port 23339. Pool Host stays
   pool.routehash.com:28915. Independent operators clear Pool Host.
 submitter: RouteHash
 submission: https://app.routehash.com/pool/connect

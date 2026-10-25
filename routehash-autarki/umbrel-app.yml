@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: routehash-autarki
 category: bitcoin
 name: Autarki - Wallet / Nostr Shop
-version: "0.1.2"
+version: "0.1.3"
 tagline: No platform. Just the sale.
 description: >-
   This listing installs on umbrelOS 1.x and umbrelOS 2.0. Autarki is one wallet and one shop on this server. The first screen creates the wallet. Write the 24 words on paper before you leave that screen. A password for this copy is optional. If you leave it blank, the 24 words stay in the clear, and a backup of this app is then the seed.
@@ -13,7 +13,7 @@ description: >-
 
   Install does not require Bitcoin Knots or Bitcoin Core. Umbrel's Bitcoin app is Bitcoin Core, so this package does not use it as the XBT node.
 releaseNotes: >-
-  Installs on umbrelOS 1.x and umbrelOS 2.0. Umbrel builds the program from this app folder. An AMD or Intel Umbrel uses the amd64 program. Umbrel Home and a Raspberry Pi use the arm64 program.
+  Version 0.1.3 keeps this app id, so a wallet from 0.1.2 stays. Umbrel builds the program on the machine. Umbrel Home, Umbrel Pro, and an AMD or Intel Umbrel use the amd64 program. A Raspberry Pi uses the arm64 program.
 developer: Autarki
 website: https://github.com/RouteHash-com/autarki
 dependencies: []

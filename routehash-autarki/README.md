@@ -6,7 +6,7 @@
 
 No platform. Just the sale.
 
-Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.2. Umbrel builds the matching program for that machine. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The words, the shop book, and the sale stay on that Umbrel.
+Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.3. Umbrel Home and Umbrel Pro are Intel, so they use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The words, the shop book, and the sale stay on that Umbrel.
 
 The name in the RouteHash app store is **Autarki - Wallet / Nostr Shop**.
 
@@ -45,7 +45,7 @@ https://github.com/RouteHash-com/umbrel-store
 
 If Autarki is missing from the list, or an install fails after you update to umbrelOS 2.0, remove this community store and add the same address again so Umbrel downloads the current list.
 
-This listing is version 0.1.2. Umbrel uses that version to offer the update.
+This listing is version 0.1.3. Umbrel uses that version to offer the update.
 
 Umbrel opens the page on port **8473**. The program listens on port **4173** inside the app.
 
@@ -57,8 +57,8 @@ Umbrel builds the image on the machine that installs the app.
 
 | Machine | Program |
 | --- | --- |
-| AMD or Intel, 64-bit | `bin/autarki-amd64` |
-| Umbrel Home or a Raspberry Pi | `bin/autarki-arm64` |
+| AMD or Intel, including Umbrel Home and Umbrel Pro | `bin/autarki-amd64` |
+| Raspberry Pi | `bin/autarki-arm64` |
 
 StartOS uses different names for the same two machines. An AMD or Intel server uses `x86_64`. A Raspberry Pi uses `aarch64`. Those packages, the image archives, and the pictures are on the package page:
 
