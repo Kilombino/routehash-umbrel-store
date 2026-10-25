@@ -26,11 +26,11 @@ The store id in `umbrel-app-store.yml` is `routehash`. Umbrel lists a community 
 
 Autarki is the wallet and the shop. Use it at a counter or for online orders. In the store the name is **Autarki**. The id is `routehash-autarki`.
 
-Install **Autarki** for the wallet. This install does not require Bitcoin Knots or Bitcoin Core. Until you add your own node, ordinary XBT and SHA-256d use Autarki's public servers, and Nostr uses Autarki's public node. Add a node later on the page, under Settings, then Coin Nodes. A silent-payment code needs your own node. XBTC has no public server in this package.
+Install **Autarki** for the wallet. This listing is version 0.1.1. This install does not require Bitcoin Knots or Bitcoin Core. Until you add your own node, ordinary XBT and SHA-256d use Autarki's public servers, and Nostr uses Autarki's public node. Add a node later on the page, under Settings, then Coin Nodes. A silent-payment code needs your own node. XBTC uses Autarki's public node until you connect your own. The StartOS package and the Umbrel package do not include that node.
 
-At the counter, Pay Counter and the clerk ticket stay on the page. A shop set to Online hides both. Publish announces that choice. Online orders arrive over Nostr. Paying is still a coin, cash, a card, or Lightning. The order does not move the money.
+At the counter, Pay Counter and the clerk ticket stay on the page. A shop set to Online hides both. Publish announces that choice. Online orders arrive over Nostr. Paying is still a coin, cash, a card, or Lightning. The order does not move the money. When the clerk marks a counter sale paid, the customer's page shows that order under Ledger, then Receipts.
 
-The install files and the checksums are in [routehash-autarki](routehash-autarki).
+The install steps, the machine each program is for, and the checksums are in [routehash-autarki](routehash-autarki).
 
 ## RouteHash Gateway
 
