@@ -3,7 +3,7 @@ id: routehash-blake2b-pool-balance
 category: bitcoin
 name: Blake2b Pool Balance
 version: "0.1.0"
-tagline: Opt-in Blake2b Pool Host chooser beside your DATUM gateway
+tagline: Keeps one Blake2b pool from growing past the share you will help it hold
 description: >-
   Beta. A live Umbrel install is not confirmed yet.
 

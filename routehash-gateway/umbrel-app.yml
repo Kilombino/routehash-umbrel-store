@@ -1,9 +1,9 @@
 manifestVersion: 1.1
 id: routehash-gateway
 category: bitcoin
-name: RouteHash Gateway
+name: RouteHash Datum Gateway
 version: "0.1.0"
-tagline: DATUM next to your Knots, pointed at RouteHash
+tagline: Your ASICs and your Knots, pointed at RouteHash
 description: >-
   ⚙️ Please read the important setup instructions at the bottom of this page.
 

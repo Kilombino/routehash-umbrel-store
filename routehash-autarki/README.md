@@ -2,13 +2,13 @@
   <img src="icon.png" alt="Autarki" width="128">
 </p>
 
-# Autarki
+# Autarki - Wallet / Nostr Shop
 
 No platform. Just the sale.
 
-Autarki is the wallet and the shop on the Umbrel you already run. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The words, the shop book, and the sale stay on that Umbrel.
+Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, or a Raspberry Pi. Umbrel builds the matching program for that machine. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The words, the shop book, and the sale stay on that Umbrel.
 
-The name in the RouteHash app store is **Autarki**. Umbrel's id for it is `routehash-autarki`, and this folder uses that same id. Umbrel lists a community app only when the id starts with the store id `routehash` and the folder name matches that id. A folder named `autarki` stays hidden.
+The name in the RouteHash app store is **Autarki - Wallet / Nostr Shop**.
 
 This store is the RouteHash community store. It is not the official Umbrel App Store.
 
@@ -41,7 +41,7 @@ https://github.com/RouteHash-com/umbrel-store
 ```
 
 4. Open **RouteHash app store**.
-5. Under **Bitcoin**, install **Autarki**.
+5. Under **Bitcoin**, install **Autarki - Wallet / Nostr Shop**.
 
 If Autarki is missing from the list, remove this community store and add the same address again so Umbrel downloads the current list.
 
