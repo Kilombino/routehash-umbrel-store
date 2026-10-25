@@ -2,7 +2,11 @@
 
 RouteHash Datum Gateway is for a person who already runs Bitcoin Knots and wants their own ASICs to mine through DATUM, with the pool pointed at RouteHash.
 
-It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. The image is one manifest for amd64 and arm64. The StartOS package is a separate download for an AMD or Intel server. A Raspberry Pi running StartOS does not have a gateway package in that release. A Raspberry Pi running Umbrel installs this app from this store.
+It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. This listing is version 0.1.1. It installs on umbrelOS 1.x and on umbrelOS 2.0. It is the same app as 0.1.0, so an update keeps the saved gateway config. Umbrel pulls one image manifest for amd64 and arm64. It does not build the gateway on the machine. The StartOS package is a separate download for an AMD or Intel server. A Raspberry Pi running StartOS does not have a gateway package in that release. A Raspberry Pi running Umbrel installs this app from this store. The listing stays beta until a live Umbrel install is confirmed.
+
+Umbrel opens the tile on port **7154** and forwards it to the API on port **7152**. Another app on this Umbrel reaches that API at `http://10.21.21.71:7152`.
+
+This app depends on the official Umbrel app `bitcoin-knots`. That listing is version 1.2.13, Knots v29.4.knots20260508. It follows Bitcoin and does not include Blake2b, so a Blake2b ASIC does not get Blake2b work from it. Leave that app in place when Lightning or Electrs uses it. This gateway does not attach to Knots (BLAKE2b) Companion. If Datum (BLAKE2b) Companion is already installed, use that gateway and skip this app.
 
 This store is the RouteHash community store. It is not the official Umbrel App Store.
 

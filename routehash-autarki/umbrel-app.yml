@@ -13,7 +13,7 @@ description: >-
 
   Install does not require Bitcoin Knots or Bitcoin Core. Umbrel's Bitcoin app is Bitcoin Core, so this package does not use it as the XBT node.
 releaseNotes: >-
-  Installs on umbrelOS 2.0. Umbrel builds the program from this app folder. An AMD or Intel Umbrel uses the amd64 program. Umbrel Home and a Raspberry Pi use the arm64 program.
+  Installs on umbrelOS 1.x and umbrelOS 2.0. Umbrel builds the program from this app folder. An AMD or Intel Umbrel uses the amd64 program. Umbrel Home and a Raspberry Pi use the arm64 program.
 developer: Autarki
 website: https://github.com/RouteHash-com/autarki
 dependencies: []

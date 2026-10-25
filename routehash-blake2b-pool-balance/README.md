@@ -4,9 +4,9 @@ Blake2b Pool Balance is for a person who already mines Blake2b through their own
 
 About once a minute it reads the pools that have published a size limit. When the pool this gateway is on would pass the share this machine will help one pool hold, it moves Pool Host to a pool that still has room. That share starts at 30 percent of global XBT hashrate. House Pool is the last stop, already filled in as `pool.routehash.com:28915`, so the rig keeps hashing when every other pool is full. A pool operator uses the other card on the same page to publish that pool's own limit. Only this gateway moves, and only after you turn that on.
 
-Umbrel builds this app on the machine. It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi, on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs this folder.
+Umbrel builds this app on the machine, from this app folder. It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi, on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs this folder.
 
-On Umbrel the app id is `routehash-blake2b-pool-balance` and this listing is version **0.1.1**. The StartOS package id stays `blake2b-pool-balance`, and that package in the current release is still **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
+On Umbrel the app id is `routehash-blake2b-pool-balance` and this listing is version **0.1.2**. It is the same app as 0.1.1, so an update keeps the saved chooser. The StartOS package id stays `blake2b-pool-balance`, and that package in the current release is still **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
 
 It sits beside the DATUM gateway you already run. It does not replace store id `routehash` or app id `routehash-gateway`. It does not install DATUM, it does not install Bitcoin Knots, and it does not listen for ASICs. Your ASICs stay on the miner port of the gateway you already use. Never put port 28915 on an ASIC.
 
@@ -18,13 +18,13 @@ The same service for StartOS is [github.com/RouteHash-com/blake2b-pool-balance](
 
 ## Install
 
-1. In Umbrel open **Settings → App stores → Add a community app store** and paste:
+1. Open the **App Store** from the dock. Click the three dots at the top right, choose **Community App Stores**, paste the address below, and choose **Add**. On umbrelOS 2.0, after a store is added, that menu includes **Manage**. Then choose **Open** next to **RouteHash**.
 
    ```
    https://github.com/RouteHash-com/umbrel-store
    ```
 
-2. Install the DATUM gateway you already use. **RouteHash Gateway** in this same store is one option. It needs Umbrel **Bitcoin Knots** 29.4.2 (store app 1.2.18, Léo Haf / Retropex). Its miner port is **23339**. Pool Host on that gateway is prefilled `pool.routehash.com:28915`. If you already run Datum (BLAKE2b) Companion, or any other DATUM, skip RouteHash Gateway and use that one. One DATUM per box.
+2. Install the DATUM gateway you already use. **RouteHash Gateway** in this same store is one option. It depends on the official Umbrel app `bitcoin-knots` (store version 1.2.13, Knots v29.4.knots20260508). That Knots build follows Bitcoin and does not include Blake2b. Its miner port is **23339**. Pool Host on that gateway is prefilled `pool.routehash.com:28915`. If you already run Datum (BLAKE2b) Companion, or any other DATUM, skip RouteHash Gateway and use that one. One DATUM per box.
 3. Install **Blake2b Pool Balance**. It does not replace RouteHash Gateway. Dependencies are empty on purpose, so Umbrel will not install Knots or DATUM as part of this app. The gateway app already declared Knots when that is the gateway you use.
 4. Open the app. The settings page is port **7156**. On the apps network this app is `10.21.21.74`.
 

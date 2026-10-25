@@ -67,15 +67,15 @@ missing=""
 [ -z "${node_ip}" ] && missing="${missing} APP_BITCOIN_KNOTS_NODE_IP"
 [ -z "${rpc_port}" ] && missing="${missing} APP_BITCOIN_KNOTS_RPC_PORT"
 if [ -n "${missing}" ]; then
-  echo "Missing Bitcoin Knots RPC env:${missing}. Install bitcoin-knots 29.4.2. Exiting."
+  echo "Missing Bitcoin Knots RPC env:${missing}. Install Bitcoin Knots (app id bitcoin-knots) before this gateway. Exiting."
   exit 1
 fi
 
-echo "Pointing DATUM at Bitcoin Knots ${node_ip}:${rpc_port}."
+echo "Pointing DATUM at Bitcoin Knots http://${node_ip}:${rpc_port}."
 
 jq --arg user "${rpc_user}" \
    --arg pass "${rpc_pass}" \
-   --arg url "${node_ip}:${rpc_port}" \
+   --arg url "http://${node_ip}:${rpc_port}" \
    '.bitcoind.rpcuser = $user |
     .bitcoind.rpcpassword = $pass |
     .bitcoind.rpcurl = $url' \

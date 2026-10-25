@@ -7,6 +7,8 @@ services:
       APP_PORT: 7152
 
   # Multi-arch manifest list (amd64 + arm64) from GHCR push 2026-10-01.
+  # No build key. On umbrelOS 2.0 Umbrel's compose fragment is the first file,
+  # and a relative build context would point at that fragment's directory.
   gateway:
     image: ghcr.io/routehash-com/datum-gateway:7491a509@sha256:8f09fbe10fb9183390061e316279401360b464a1b1b4d2054d3ac100feeaa6c7
     entrypoint: ["/usr/local/bin/datum_gateway"]
