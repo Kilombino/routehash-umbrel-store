@@ -2,10 +2,10 @@ manifestVersion: 1.1
 id: routehash-autarki
 category: bitcoin
 name: Autarki - Wallet / Nostr Shop
-version: "0.1.1"
+version: "0.1.2"
 tagline: No platform. Just the sale.
 description: >-
-  Autarki is one wallet and one shop on this server. The first screen creates the wallet. Write the 24 words on paper before you leave that screen. A password for this copy is optional. If you leave it blank, the 24 words stay in the clear, and a backup of this app is then the seed.
+  This listing installs on umbrelOS 1.x and umbrelOS 2.0. Autarki is one wallet and one shop on this server. The first screen creates the wallet. Write the 24 words on paper before you leave that screen. A password for this copy is optional. If you leave it blank, the 24 words stay in the clear, and a backup of this app is then the seed.
 
 
   Ordinary XBT and SHA-256d addresses use Autarki's servers until you connect your own node under Settings, then Coin Nodes. Until then the page gives a normal address. A silent-payment code needs your own node. XBTC uses Autarki's public node until you connect your own under Settings, then Coin Nodes. The StartOS package and the Umbrel package do not include that node.
@@ -13,7 +13,7 @@ description: >-
 
   Install does not require Bitcoin Knots or Bitcoin Core. Umbrel's Bitcoin app is Bitcoin Core, so this package does not use it as the XBT node.
 releaseNotes: >-
-  XBTC uses Autarki's public node until you connect your own under Settings, then Coin Nodes. A counter sale marked paid on the shop shows under Ledger, then Receipts, on the customer page. An AMD or Intel Umbrel uses the amd64 program. Umbrel Home and a Raspberry Pi use the arm64 program.
+  Installs on umbrelOS 2.0. Umbrel builds the program from this app folder. An AMD or Intel Umbrel uses the amd64 program. Umbrel Home and a Raspberry Pi use the arm64 program.
 developer: Autarki
 website: https://github.com/RouteHash-com/autarki
 dependencies: []

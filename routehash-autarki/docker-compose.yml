@@ -8,8 +8,9 @@ services:
 
   web:
     build:
-      context: .
+      context: ${APP_DATA_DIR}
       dockerfile: Dockerfile
+    hostname: web
     user: "1000:1000"
     init: true
     restart: on-failure

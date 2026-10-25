@@ -1,6 +1,6 @@
 # RouteHash app store
 
-Community apps for Umbrel. This store is separate from the official Umbrel App Store. The apps install on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi.
+Community apps for Umbrel. This store is separate from the official Umbrel App Store. The apps install on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. Each listing is the one you install on umbrelOS 1.x and on umbrelOS 2.0.
 
 ## Add the store
 
@@ -16,13 +16,13 @@ https://github.com/RouteHash-com/umbrel-store
 5. Open **RouteHash app store**.
 6. Under **Bitcoin**, install the app you want.
 
-Umbrel keeps the copy it already downloaded. If an app from the list below is missing, remove this community store and add the same address again.
+Umbrel keeps the copy it already downloaded. If an app from the list below is missing, or an install fails after you update to umbrelOS 2.0, remove this community store and add the same address again.
 
 ## Autarki - Wallet / Nostr Shop
 
 Autarki is the wallet and the Nostr shop. A person at a counter, or a shop that takes orders over Nostr, uses it to make the sale and hold the wallet on this Umbrel. The words, the shop book, and the sale stay on that machine.
 
-It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. Umbrel builds the program that matches the machine. The StartOS packages for an AMD or Intel server and for a Raspberry Pi are on the package page.
+It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. This listing is version 0.1.2, and it installs on umbrelOS 1.x and on umbrelOS 2.0. Umbrel builds the program that matches the machine. The StartOS packages for an AMD or Intel server and for a Raspberry Pi are on the package page.
 
 This install does not require Bitcoin Knots or Bitcoin Core. Until you add your own node, ordinary XBT and SHA-256d use Autarki's public servers, and Nostr uses Autarki's public node. Add a node later on the page, under Settings, then Coin Nodes. A silent-payment code needs your own node. XBTC uses Autarki's public node until you connect your own. The StartOS package and the Umbrel package do not include that node.
 
@@ -50,7 +50,7 @@ About once a minute it reads the pools that have published a size limit. When th
 
 It sits beside the DATUM gateway you already run. It does not install DATUM, and it does not replace RouteHash Datum Gateway. It has no miner port. The ASICs stay on the gateway. The settings page is port **7156**.
 
-Umbrel builds this app on the machine, so it runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs it from this store.
+Umbrel builds this app on the machine, so it runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. This listing is version 0.1.1, and it installs on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs it from this store.
 
 The notes are in [routehash-blake2b-pool-balance/README.md](routehash-blake2b-pool-balance/README.md).
 

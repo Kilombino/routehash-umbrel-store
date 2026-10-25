@@ -2,10 +2,10 @@ manifestVersion: 1.1
 id: routehash-blake2b-pool-balance
 category: bitcoin
 name: Blake2b Pool Balance
-version: "0.1.0"
+version: "0.1.1"
 tagline: Keeps one Blake2b pool from growing past the share you will help it hold
 description: >-
-  Beta. A live Umbrel install is not confirmed yet.
+  Beta. A live Umbrel install is not confirmed yet. This listing installs on umbrelOS 1.x and umbrelOS 2.0.
 
 
   Already run a DATUM gateway on this Umbrel? This sits beside it. It does not
@@ -72,7 +72,7 @@ gallery:
   - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-blake2b-pool-balance/gallery/1.png
 path: ""
 releaseNotes: >-
-  First Umbrel package (beta). Opt-in Blake2b Pool Host chooser beside
+  Installs on umbrelOS 1.x and umbrelOS 2.0. Opt-in Blake2b Pool Host chooser beside
   the DATUM gateway you already run. It does not replace RouteHash Gateway.
   The relay list starts with the RouteHash relay. House Pool is already filled
   in as the last stop. Local max percent refuses a number above 30. An empty

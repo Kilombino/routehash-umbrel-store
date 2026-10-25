@@ -4,9 +4,9 @@ Blake2b Pool Balance is for a person who already mines Blake2b through their own
 
 About once a minute it reads the pools that have published a size limit. When the pool this gateway is on would pass the share this machine will help one pool hold, it moves Pool Host to a pool that still has room. That share starts at 30 percent of global XBT hashrate. House Pool is the last stop, already filled in as `pool.routehash.com:28915`, so the rig keeps hashing when every other pool is full. A pool operator uses the other card on the same page to publish that pool's own limit. Only this gateway moves, and only after you turn that on.
 
-Umbrel builds this app on the machine. It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs this folder.
+Umbrel builds this app on the machine. It runs on an AMD or Intel Umbrel, on Umbrel Home, and on a Raspberry Pi, on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs this folder.
 
-On Umbrel the app id is `routehash-blake2b-pool-balance`. The StartOS package id stays `blake2b-pool-balance`. Version **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
+On Umbrel the app id is `routehash-blake2b-pool-balance` and this listing is version **0.1.1**. The StartOS package id stays `blake2b-pool-balance`, and that package in the current release is still **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
 
 It sits beside the DATUM gateway you already run. It does not replace store id `routehash` or app id `routehash-gateway`. It does not install DATUM, it does not install Bitcoin Knots, and it does not listen for ASICs. Your ASICs stay on the miner port of the gateway you already use. Never put port 28915 on an ASIC.
 
