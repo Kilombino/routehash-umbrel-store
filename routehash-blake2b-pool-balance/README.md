@@ -1,6 +1,6 @@
 # Blake2b Pool Balance (Umbrel)
 
-Opt-in chooser for a Blake2b DATUM Pool Host. App id `blake2b-pool-balance`. Version **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
+Opt-in chooser for a Blake2b DATUM Pool Host. On Umbrel the app id is `routehash-blake2b-pool-balance`. The StartOS package id stays `blake2b-pool-balance`. Version **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
 
 It sits beside the DATUM gateway you already run. It does not replace store id `routehash` or app id `routehash-gateway`. It does not install DATUM, it does not install Bitcoin Knots, and it does not listen for ASICs. Your ASICs stay on the miner port of the gateway you already use. Never put port 28915 on an ASIC.
 
@@ -26,7 +26,7 @@ The first install builds the image from the Dockerfile in this folder. There is 
 
 | Piece | Value |
 | --- | --- |
-| App id | `blake2b-pool-balance` |
+| App id | `routehash-blake2b-pool-balance` |
 | Settings page | `7156` |
 | Apps-network IP | `10.21.21.74` |
 | Image | built on install from the Dockerfile (`build:` only, no `image:`) |

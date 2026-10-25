@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: autarki_web_1
+      APP_HOST: web
       APP_PORT: 4173
 
   web:

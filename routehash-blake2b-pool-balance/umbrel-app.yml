@@ -1,5 +1,5 @@
 manifestVersion: 1.1
-id: blake2b-pool-balance
+id: routehash-blake2b-pool-balance
 category: bitcoin
 name: Blake2b Pool Balance
 version: "0.1.0"
@@ -67,9 +67,9 @@ dependencies: []
 repo: https://github.com/RouteHash-com/blake2b-pool-balance
 support: https://app.routehash.com/pool/connect
 port: 7156
-icon: https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/blake2b-pool-balance/icon.png
+icon: https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-blake2b-pool-balance/icon.png
 gallery:
-  - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/blake2b-pool-balance/gallery/1.png
+  - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-blake2b-pool-balance/gallery/1.png
 path: ""
 releaseNotes: >-
   First Umbrel package (beta). Opt-in Blake2b Pool Host chooser beside
