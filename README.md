@@ -53,7 +53,7 @@ About once a minute it reads the pools that have published a size limit. When th
 
 It sits beside the DATUM gateway you already run. It does not install DATUM, and it does not replace RouteHash Datum Gateway. It has no miner port. The ASICs stay on the gateway. The settings page is port **7156**.
 
-Umbrel builds this app on the machine, from this app folder. Umbrel Home and Umbrel Pro are Intel, so they build the amd64 image. A Raspberry Pi builds the arm64 image. This listing is version 0.1.3. It is the same app as 0.1.2, and it installs on umbrelOS 1.x and on umbrelOS 2.0. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs it from this store.
+Umbrel builds this app on the machine, from this app folder. Umbrel Home and Umbrel Pro are Intel, so they build the amd64 image. A Raspberry Pi builds the arm64 image. This listing is version 0.1.4. It is the same app as 0.1.3, and it installs on umbrelOS 1.x and on umbrelOS 2.0. The StartOS release has an AMD and Intel file and a Raspberry Pi file. A Raspberry Pi running Umbrel installs this app from this store.
 
 The notes are in [routehash-blake2b-pool-balance/README.md](routehash-blake2b-pool-balance/README.md).
 

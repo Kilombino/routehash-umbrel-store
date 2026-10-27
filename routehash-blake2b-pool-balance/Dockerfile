@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-# python:3.12-slim is multi-arch. A Raspberry Pi pulls the arm64 image.
+# Listing 0.1.4. python:3.12-slim is multi-arch. A Raspberry Pi pulls the arm64 image.
 # crcmod 1.7 ships source only, so this build compiles it, then removes the compiler.
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \

@@ -4,9 +4,9 @@ Blake2b Pool Balance is for a person who already mines Blake2b through their own
 
 About once a minute it reads the pools that have published a size limit. When the pool this gateway is on would pass the share this machine will help one pool hold, it moves Pool Host to a pool that still has room. That share starts at 30 percent of global XBT hashrate. House Pool is the last stop, already filled in as `pool.routehash.com:28915`, so the rig keeps hashing when every other pool is full. A pool operator uses the other card on the same page to publish that pool's own limit. Only this gateway moves, and only after you turn that on.
 
-Umbrel builds this app on the machine, from this app folder. It runs on an AMD or Intel Umbrel, on Umbrel Home, on Umbrel Pro, and on a Raspberry Pi, on umbrelOS 1.x and on umbrelOS 2.0. Umbrel Home and Umbrel Pro are Intel, so they build the amd64 image. A Raspberry Pi builds the arm64 image. The StartOS package is the AMD or Intel file. A Raspberry Pi running StartOS does not have this package in that release. A Raspberry Pi running Umbrel installs this folder.
+Umbrel builds this app on the machine, from this app folder. It runs on an AMD or Intel Umbrel, on Umbrel Home, on Umbrel Pro, and on a Raspberry Pi, on umbrelOS 1.x and on umbrelOS 2.0. Umbrel Home and Umbrel Pro are Intel, so they build the amd64 image. A Raspberry Pi builds the arm64 image. The StartOS release has two files. `blake2b-pool-balance_x86_64.s9pk` is for an AMD or Intel server. `blake2b-pool-balance_aarch64.s9pk` is for a Raspberry Pi running StartOS. A Raspberry Pi running Umbrel installs this folder.
 
-On Umbrel the app id is `routehash-blake2b-pool-balance` and this listing is version **0.1.3**. It is the same app as 0.1.2, so an update keeps the saved chooser. The StartOS package id stays `blake2b-pool-balance`, and that package in the current release is still **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
+On Umbrel the app id is `routehash-blake2b-pool-balance` and this listing is version **0.1.4**. It is the same app as 0.1.3, so an update keeps the saved chooser. The StartOS package id stays `blake2b-pool-balance`, and that package in the current release is still **0.1.0**. It is **beta** until a live Umbrel install is confirmed.
 
 It sits beside the DATUM gateway you already run. It does not replace store id `routehash` or app id `routehash-gateway`. It does not install DATUM, it does not install Bitcoin Knots, and it does not listen for ASICs. Your ASICs stay on the miner port of the gateway you already use. Never put port 28915 on an ASIC.
 
@@ -56,9 +56,9 @@ If you operate a pool and also mine, run a second DATUM for your own ASICs. Open
 Complete this list only for your own mining DATUM.
 
 1. Point each ASIC at that gateway's miner port and leave it there. RouteHash Gateway on this Umbrel uses **23339**. Another DATUM app may show a different miner port. Never put port 28915 on an ASIC. Use the Umbrel server's IP address in the ASIC, not a `.local` name. Hash-only miners who do not run a gateway skip this app. Their firmware stays `stratum.routehash.com:23335`.
-2. On the DATUM dashboard open Interface, then Web UI, then Local. Copy the address and the API Listen Port. The gateway API address is `http://` plus that address and port. When the gateway is RouteHash Gateway on this Umbrel, that address is `http://10.21.21.71:7152`.
-3. Copy the API Password from that same Local screen. Right-click the gateway app icon and choose **Show default credentials** if you have not set your own. The dashboard user is `admin`.
-4. Turn on Allow API Config Writes. This app cannot turn that switch on. Pool Host does not change while it is off.
+2. On the gateway service open Web Interface. Paste one Local https address into Gateway API address. The Listen Port on the API screen is the port inside the gateway. Leave it there. When the gateway is RouteHash Gateway on this Umbrel, that address is `http://10.21.21.71:7152`.
+3. On the API screen, copy the Admin Password. Right-click the gateway app icon and choose **Show default credentials** if you have not set your own. The dashboard user is `admin`.
+4. Turn on Allow API Config Writes on that same API screen. This app cannot turn that switch on. Pool Host does not change while it is off.
 5. On this app page, choose Node Runner. Paste the gateway API address and the API password. Check the mining-DATUM box, then opt in. A blank password on this page keeps the saved password.
 6. Leave Local max percent empty if 30 is what you want. See [Local max percent](#local-max-percent).
 7. Set Rig TH/s to the advertised figure for the rigs on this gateway. Zero stays on the saved Pool Host. This number is added only when checking whether a pool still has room. It is not a hash ceiling on the ASIC.
@@ -80,7 +80,7 @@ The 320-character private key proves you own the pool. On StartOS it is the file
 
 Paste the key from that file once. The page stores it in the app data and does not show it again. After save it shows the derived public 128-character pool key.
 
-Percent of global XBT hashrate on the publish form is the pool cap, not the node-runner limit. The page sends the cap first. The listing is sent only after a relay accepts that cap. A listing with no cap does not move anyone. Name defaults to the host. A stats URL is optional, stored, and not fetched. Publish again within 24 hours. Caps are not auto-republished. Remove sends a cap that stops receiving, then a listing marked removed.
+Percent of global XBT hashrate on the publish form is the pool cap, not the node-runner limit. The page sends the cap first. The listing is sent only after a relay accepts that cap. A listing with no cap does not move anyone. Name defaults to the host. A stats URL is optional, stored, and not fetched. While this app is running it re-signs the last accepted publish after 12 hours. A removal is not renewed. If the app is off, publish again within 24 hours. Remove sends a cap that stops receiving, then a listing marked removed.
 
 The **Pools on the relays** table is every signed listing read from your relay list. It is not an allow list. The RouteHash relay does not ask for a separate login. The signature is the permission. Open writes stay on. RouteHash cannot sign another pool's cap.
 
@@ -130,10 +130,10 @@ After 30 minutes on House Pool, the chooser stays there until your home Pool Hos
 
 ## How a move is chosen
 
-About once a minute the app reads the relays, the pool-size sample, and the global XBT hashrate, then decides.
+About once a minute the app reads the relays, each pool's TH/s, and the chain totals, then decides.
 
-- Pool size comes from mempool.guide, matched to the coinbase tag in the signed cap. A full tag match is required. A very short tag is skipped. This app does not read `samples.json`. Without a chain sample for a tag, that pool is not an overflow target.
-- The global XBT hashrate comes from the node RPC when Node RPC address is set. When that address is blank, the total comes from mempool.guide. The user is the rpcuser on that Knots or Bitcoin Core node. The password is the rpcpassword. This is not the DATUM gateway and not a Nostr relay. A blank RPC password on the page keeps the saved password.
+- XBT pool size comes from mempool.guide. XBTC pool size comes from mempool.xbtcash.org. `estimatedHashrate` is the pool TH/s when that field is present. The table shows Pool TH/s. A full tag match is required. A very short tag is skipped. This app does not read `samples.json`. Without a chain sample for a tag, that pool is not an overflow target.
+- The chain control starts on XBT. Pick XBTC when the RPC is the XBTC Knots node. `getnetworkhashps` from that node replaces the explorer total for the chain you picked. The other chain uses its explorer. When the address is blank, the XBT total comes from mempool.guide and the XBTC total comes from mempool.xbtcash.org. The user is the rpcuser on that Knots or Bitcoin Core node. The password is the rpcpassword. This is not the DATUM gateway and not a Nostr relay. A blank RPC password on the page keeps the saved password.
 - A listing without a current cap is not a move target. A cap that does not match the current listing is skipped. The newest unexpired listing updates the name, host, port, tag, and stats URL. The Nostr key only carries the event. It does not sign the cap. The DATUM identity signs the cap.
 - A pool whose tag is missing or does not match is reverted and skipped for about 10 minutes.
 - Home that was copied from your gateway still works when that pool has not published a listing.
@@ -157,7 +157,7 @@ The first start copies `data/chooser.json` into the app data directory only when
 
 ## StartOS
 
-Sideload `blake2b-pool-balance_x86_64.s9pk` from [v0.1.0](https://github.com/RouteHash-com/blake2b-pool-balance/releases/tag/v0.1.0). Package id `blake2b-pool-balance`. It does not replace `datum` or `routehash-gateway`. The service page there is also port 7156. The long StartOS description is the README in that repository.
+Sideload the file that matches the machine from [v0.1.0](https://github.com/RouteHash-com/blake2b-pool-balance/releases/tag/v0.1.0). AMD and Intel use `blake2b-pool-balance_x86_64.s9pk`. A Raspberry Pi running StartOS uses `blake2b-pool-balance_aarch64.s9pk`. Package id `blake2b-pool-balance`. It does not replace `datum` or `routehash-gateway`. The service page there is also port 7156. The long StartOS description is the README in that repository.
 
 ## Packaging
 

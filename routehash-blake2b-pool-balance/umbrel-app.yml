@@ -2,10 +2,10 @@ manifestVersion: 1.1
 id: routehash-blake2b-pool-balance
 category: bitcoin
 name: Blake2b Pool Balance
-version: "0.1.3"
+version: "0.1.4"
 tagline: Keeps one Blake2b pool from growing past the share you will help it hold
 description: >-
-  Beta. A live Umbrel install is not confirmed yet. This listing is version 0.1.3. It installs on umbrelOS 1.x and umbrelOS 2.0. It is the same app as 0.1.2, so an update keeps the saved chooser. Umbrel builds it on the machine. A Raspberry Pi builds the arm64 image. Umbrel Home and Umbrel Pro are Intel and build the amd64 image.
+  Beta. A live Umbrel install is not confirmed yet. This listing is version 0.1.4. It installs on umbrelOS 1.x and umbrelOS 2.0. It is the same app as 0.1.3, so an update keeps the saved chooser. Umbrel builds it on the machine. A Raspberry Pi builds the arm64 image. Umbrel Home and Umbrel Pro are Intel and build the amd64 image.
 
 
   Already run a DATUM gateway on this Umbrel? This sits beside it. It does not
@@ -38,11 +38,13 @@ description: >-
   home Pool Host fits again.
 
 
-  Open the app before a rig can move. On the DATUM dashboard open Interface,
-  then Web UI, then Local. Copy the address, the API Listen Port, and the API
-  Password. Turn on Allow API Config Writes. This app cannot turn that switch
-  on. For RouteHash Gateway that address is http://10.21.21.71:7152 and the
-  dashboard user is admin. Leave the address blank and this app does not write.
+  Open the app before a rig can move. On the gateway service open Web
+  Interface. Paste one Local https address. On Umbrel, when the gateway is
+  RouteHash Gateway on this machine, that address is http://10.21.21.71:7152.
+  The Listen Port on the API screen is the port inside the gateway. Paste the
+  Admin Password from that API screen. Turn on Allow API Config Writes on that
+  same API screen. This app cannot turn that switch on. The dashboard user is
+  admin. A blank address on this page keeps the address already saved.
 
 
   Skip publish if you only run a DATUM gateway. The 320-character private key
@@ -51,13 +53,19 @@ description: >-
   starts and does not show it. Show Pool Pubkey cannot sign a cap. A DATUM
   gateway does not have this file. The cap is sent first. The listing is sent
   only after a relay accepts that cap. A listing with no cap does not move
-  anyone. Publish again within 24 hours.
+  anyone. While this app is running it re-signs the last accepted publish after
+  12 hours. A removal is not renewed. If the app is off, publish again within
+  24 hours.
 
 
-  Pool size is read from mempool.guide. When the Node RPC address is set, the
-  global XBT hashrate comes from that node. When it is blank, the total comes
-  from mempool.guide.
-  Without a chain sample for a tag, another pool is not an overflow target.
+  XBT pool size comes from mempool.guide. XBTC pool size comes from
+  mempool.xbtcash.org. estimatedHashrate is the pool TH/s when that field is
+  present. The table shows Pool TH/s. Chain this node is on starts on XBT.
+  Pick XBTC when the RPC is the XBTC Knots node. When the Node RPC address is
+  set, getnetworkhashps replaces the explorer total for that chain. The other
+  chain uses its explorer. When the address is blank, each chain uses its
+  explorer. Without a chain sample for a tag, another pool is not an overflow
+  target.
 
 
   Hashers who do not run a node skip this app.
@@ -72,13 +80,17 @@ gallery:
   - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-blake2b-pool-balance/gallery/1.png
 path: ""
 releaseNotes: >-
-  Version 0.1.3 keeps app id routehash-blake2b-pool-balance, so the data from
-  0.1.2 stays. The build compiles crcmod, which ships as source only. A
-  Raspberry Pi builds the arm64 image. Umbrel Home and Umbrel Pro are Intel
-  and build the amd64 image. If 0.1.2 failed while building the image, uninstall
-  this app and install it again. An update does not replace the image recipe.
-  It does not replace RouteHash Gateway. The relay list starts with the
-  RouteHash relay. House Pool is already filled in as the last stop. Local max
-  percent refuses a number above 30. An empty local max percent stores 30.
+  Version 0.1.4 keeps app id routehash-blake2b-pool-balance, so the data from
+  0.1.3 stays. The same app installs on umbrelOS 1.x and umbrelOS 2.0. Umbrel
+  Home and Umbrel Pro build the amd64 image. A Raspberry Pi builds the arm64
+  image. Gateway API address is a Local https address from the gateway Web
+  Interface. On this Umbrel, RouteHash Gateway is http://10.21.21.71:7152. The
+  Listen Port on the API screen stays inside the gateway. Admin Password is on
+  that API screen. The build compiles crcmod, which ships as source only. If
+  the page still shows the old gateway sentence, uninstall this app and install
+  it again. An update does not always replace the image recipe. It does not
+  replace RouteHash Gateway. The relay list starts with the RouteHash relay.
+  House Pool is already filled in as the last stop. Local max percent refuses
+  a number above 30. An empty local max percent stores 30.
 submitter: RouteHash
 submission: https://app.routehash.com/pool/connect
