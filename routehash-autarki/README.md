@@ -6,7 +6,7 @@
 
 No platform. Just the sale.
 
-Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.4. A wallet from 0.1.3 stays. Umbrel Home and Umbrel Pro are Intel, so they use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The words, the shop book, and the sale stay on that Umbrel.
+Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.5. A wallet from 0.1.4 stays. Umbrel Home and Umbrel Pro are Intel, so they use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The words, the shop book, and the sale stay on that Umbrel.
 
 The name in the RouteHash app store is **Autarki - Wallet / Nostr Shop**.
 
@@ -45,7 +45,7 @@ https://github.com/RouteHash-com/umbrel-store
 
 If Autarki is missing from the list, or an install fails after you update to umbrelOS 2.0, remove this community store and add the same address again so Umbrel downloads the current list.
 
-This listing is version 0.1.4. Umbrel uses that version to offer the update. A wallet from 0.1.3 stays.
+This listing is version 0.1.5. Umbrel uses that version to offer the update. A wallet from 0.1.4 stays.
 
 Umbrel opens the page on port **8473**. The program listens on port **4173** inside the app.
 
@@ -76,8 +76,8 @@ Each line ends in `OK` when that file matches. A partial download does not.
 
 | Program | SHA-256 |
 | --- | --- |
-| `bin/autarki-amd64` | `aa4f193b7cc348791b4949726354f4ed83c496e31e41ae3f9fc84279d7415297` |
-| `bin/autarki-arm64` | `519b11d2c9f3a5f56888d250fb1794e5f44aaf08ad868df74370b8ad3fa9fc1b` |
+| `bin/autarki-amd64` | `ef826cf7974fcc5af0c723093599cbaf36c47adee5e722f97872f3579e72e968` |
+| `bin/autarki-arm64` | `bb651b8a1707dde85817fc159cad7f1e0efdba143c7b81e4a8ae23f2ec9b8f31` |
 
 ## First sale
 

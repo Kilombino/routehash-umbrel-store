@@ -21,7 +21,7 @@ Umbrel keeps the copy it already downloaded. If an app from the list below is mi
 
 Autarki is the wallet and the Nostr shop. A person at a counter, or a shop that takes orders over Nostr, uses it to make the sale and hold the wallet on this Umbrel. The words, the shop book, and the sale stay on that machine.
 
-It runs on an AMD or Intel Umbrel, on Umbrel Home, on Umbrel Pro, and on a Raspberry Pi. This listing is version 0.1.4, and it installs on umbrelOS 1.x and on umbrelOS 2.0. A wallet from 0.1.3 stays. Umbrel Home and Umbrel Pro are Intel, so they use the amd64 program. A Raspberry Pi uses the arm64 program. The StartOS packages for an AMD or Intel server and for a Raspberry Pi are on the package page.
+It runs on an AMD or Intel Umbrel, on Umbrel Home, on Umbrel Pro, and on a Raspberry Pi. This listing is version 0.1.5, and it installs on umbrelOS 1.x and on umbrelOS 2.0. A wallet from 0.1.4 stays. Umbrel Home and Umbrel Pro are Intel, so they use the amd64 program. A Raspberry Pi uses the arm64 program. The StartOS packages for an AMD or Intel server and for a Raspberry Pi are on the package page.
 
 This install does not require Bitcoin Knots or Bitcoin Core. Until you add your own node, ordinary XBT and SHA-256d use Autarki's public servers, and Nostr uses Autarki's public node. Add a node later on the page, under Settings, then Coin Nodes. A silent-payment code needs your own node. XBTC uses Autarki's public node until you connect your own. The StartOS package and the Umbrel package do not include that node.
 
