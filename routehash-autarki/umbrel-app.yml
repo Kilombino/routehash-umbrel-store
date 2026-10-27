@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: routehash-autarki
 category: bitcoin
 name: Autarki - Wallet / Nostr Shop
-version: "0.1.5"
+version: "0.1.6"
 tagline: No platform. Just the sale.
 description: >-
   This listing installs on umbrelOS 1.x and umbrelOS 2.0. Autarki is one wallet and one shop on this server. The first screen creates the wallet. Write the 24 words on paper before you leave that screen. A password for this copy is optional. If you leave it blank, the 24 words stay in the clear, and a backup of this app is then the seed.
@@ -14,12 +14,15 @@ description: >-
   Hire a listed Blake2b rig with XBT, or a listed SHA-256 rig with BTC. Mine writes a Lightning invoice for accepted shares and waits until you click Pay. Paying it starts that rig only. The button says Pay to start on the first invoice, and Pay to keep when that rig is already hashing. Add Hash puts another rig on the same card. Hours from balance uses the confirmed balance for the rig's minimum time. The first click quotes the hire. The second click spends it. Nothing is spent until you click Mine or confirm those hours. The card shows the work still paid for, and counts down while the rig is hashing.
 
 
-  Ordinary XBT and SHA-256d addresses use Autarki's servers until you connect your own node under Settings, then Coin Nodes. Until then the page gives a normal address. Paying a shop order uses that stall's silent-payment code from that order. A code you type on Send uses your own node. XBTC uses Autarki's public node until you connect your own under Settings, then Coin Nodes. The StartOS package and the Umbrel package do not include that node. Blake2b Lightning and SHA-256 Lightning are your own nodes. The seed stays in this wallet. The longer notes on those cards stay closed until you open them.
+  Ordinary XBT and SHA-256d addresses use Autarki's servers until you connect your own node under Settings, then Coin Nodes. Until then the page gives a normal address. Paying a shop order uses that stall's silent-payment code from that order. A code you type on Send uses your own node. XBTC uses Autarki's public node until you connect your own under Settings, then Coin Nodes. The StartOS package and the Umbrel package do not include that node. Receive, Send, Balance, and the till label ordinary Bitcoin as BTC. Remove this node, under Settings, then Coin Nodes, hides that chain until you press Use this node. The choice stays in this browser. Blake2b Lightning and SHA-256 Lightning are your own nodes. The seed stays in this wallet. The longer notes on those cards stay closed until you open them.
 
 
   Install does not require Bitcoin Knots or Bitcoin Core. Umbrel's Bitcoin app is Bitcoin Core, so this package does not use it as the XBT node.
 releaseNotes: >-
-  Version 0.1.5 keeps this app id, so a wallet from 0.1.4 stays. If the store still shows 0.1.4, remove this community store and add https://github.com/RouteHash-com/umbrel-store again.
+  Version 0.1.6 keeps this app id, so a wallet from 0.1.5 stays. This listing installs on umbrelOS 1.x and umbrelOS 2.0. If the store still shows 0.1.5, remove this community store and add https://github.com/RouteHash-com/umbrel-store again.
+
+
+  Receive, Send, Balance, and the till label ordinary Bitcoin as BTC. Under Settings, then SHA-256 Lightning, the save button says Save BTC Lightning. Remove this node, under Settings, then Coin Nodes, hides that chain on Receive, Send, Balance, checkout, Check Outs, and the till. Use this node brings the chain back. The choice stays in this browser. A saved connection stays on this computer.
 
 
   Mining stays hidden until a RouteHash account is saved. Hire a listed Blake2b rig with XBT, or a listed SHA-256 rig with BTC. Mine writes a Lightning invoice for accepted shares and waits until Pay. Paying it starts that rig only. Hours from balance spends the confirmed balance for the rig's minimum time, after a second confirmation. Add Hash, Pay to start, and Pay to keep are on the card. Open Mining Invoices on Balance follows the same account.

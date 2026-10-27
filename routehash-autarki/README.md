@@ -6,7 +6,7 @@
 
 No platform. Just the sale.
 
-Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.5. A wallet from 0.1.4 stays. A PC, Umbrel Home, and Umbrel Pro use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The same page hires a listed rig, and an online order can be shipped. The words, the shop book, and the sale stay on that Umbrel.
+Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.6. A wallet from 0.1.5 stays. A PC, Umbrel Home, and Umbrel Pro use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The same page hires a listed rig, and an online order can be shipped. The words, the shop book, and the sale stay on that Umbrel.
 
 The name in the RouteHash app store is **Autarki - Wallet / Nostr Shop**.
 
@@ -27,6 +27,8 @@ The shop opens as a point of sale. A guest at the counter uses Pay Counter, and 
 Nostr is how a shop is found, and how an order reaches that shop, without a website of your own. Publish announces the shop name, the products for sale, and which nodes should receive an order. Check for orders brings a new order onto Check Outs. Paying is still a coin, cash, a card, or Lightning. The order itself does not move the money. When the clerk marks a counter sale paid, the customer's page shows that order under Ledger, then Receipts.
 
 The three chains are ordinary XBT, SHA-256d, and XBTC. XBTC is the third chain. Ordinary XBT and SHA-256d use Autarki's servers until you connect your own node under Settings, then Coin Nodes. A silent-payment code for an address of yours is used only after that node is connected. Until then the page gives a normal address. Paying a shop order uses the stall's silent-payment code from that order. A code you type on Send uses your own node. XBTC uses Autarki's public node until you connect your own. Where this copy includes Autarki's XBTC node, that node is used until you connect your own. The StartOS package and the Umbrel package do not include that node. Nostr uses Autarki's public node until you add another. Blake2b Lightning and SHA-256 Lightning are your own nodes. The seed stays in this wallet. The longer notes on those cards stay closed until you open them. The address, the certificate, and the channel amount stay on the page.
+
+On Receive, Send, Balance, and the till, the ordinary Bitcoin chip says BTC. Under Settings, then SHA-256 Lightning, the save button says Save BTC Lightning. Remove this node, under Settings, then Coin Nodes, hides that chain on those screens, on checkout, and on Check Outs. Use this node brings it back. The choice stays in this browser. A saved connection stays on this computer.
 
 Umbrel's Bitcoin app is Bitcoin Core. Autarki does not use it as the XBT node. This install does not require Bitcoin Knots or Bitcoin Core. RouteHash Gateway is a separate app in this store, and that app does require Bitcoin Knots.
 
@@ -63,9 +65,9 @@ https://github.com/RouteHash-com/umbrel-store
 4. Open **RouteHash app store**.
 5. Under **Bitcoin**, install **Autarki - Wallet / Nostr Shop**.
 
-If the store still shows 0.1.4, remove this community store and add the same address again. Do the same when Autarki is missing from the list, or when an install fails after you update to umbrelOS 2.0, so Umbrel downloads the current list.
+If the store still shows 0.1.5, remove this community store and add the same address again. Do the same when Autarki is missing from the list, or when an install fails after you update to umbrelOS 2.0, so Umbrel downloads the current list.
 
-This listing is version 0.1.5. Umbrel uses that version to offer the update. A wallet from 0.1.4 stays.
+This listing is version 0.1.6. Umbrel uses that version to offer the update. A wallet from 0.1.5 stays.
 
 Umbrel opens the page on port **8473**. The program listens on port **4173** inside the app.
 
@@ -96,8 +98,8 @@ Each line ends in `OK` when that file matches. A partial download does not.
 
 | Program | SHA-256 |
 | --- | --- |
-| `bin/autarki-amd64` | `ef826cf7974fcc5af0c723093599cbaf36c47adee5e722f97872f3579e72e968` |
-| `bin/autarki-arm64` | `bb651b8a1707dde85817fc159cad7f1e0efdba143c7b81e4a8ae23f2ec9b8f31` |
+| `bin/autarki-amd64` | `9bd4bf371fffa422ebcbbecce746cd1f47c9f685da2d5adf149bf9d242f483db` |
+| `bin/autarki-arm64` | `d1f00978207759b368c4ef153a734588d97ed8f50564f3484ded0ba7f1d9ff79` |
 
 ## First sale
 
