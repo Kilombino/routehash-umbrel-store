@@ -6,7 +6,7 @@
 
 No platform. Just the sale.
 
-Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.9. A wallet from 0.1.8 stays. A PC, Umbrel Home, and Umbrel Pro use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The same page hires a listed rig, posts a classified, and an online order can be shipped. The words, the shop book, and the sale stay on that Umbrel.
+Autarki is the wallet and the Nostr shop on the Umbrel you already run. That Umbrel can be an AMD or Intel machine, an Umbrel Home, an Umbrel Pro, or a Raspberry Pi, on umbrelOS 1.x or umbrelOS 2.0. This listing is version 0.1.10. A wallet from 0.1.9 stays. A PC, Umbrel Home, and Umbrel Pro use the amd64 program. A Raspberry Pi uses the arm64 program. A merchant builds the order on the page. Use it as an in-person point of sale, or set the shop to Online and take the order over Nostr. The same page hires a listed rig, posts a classified, and an online order can be shipped. The words, the shop book, and the sale stay on that Umbrel.
 
 The name in the RouteHash app store is **Autarki - Wallet / Nostr Shop**.
 
@@ -79,9 +79,9 @@ https://github.com/RouteHash-com/umbrel-store
 4. Open **RouteHash app store**.
 5. Under **Bitcoin**, install **Autarki - Wallet / Nostr Shop**.
 
-If the store still shows 0.1.8, remove this community store and add the same address again. Do the same when Autarki is missing from the list, or when an install fails after you update to umbrelOS 2.0, so Umbrel downloads the current list.
+If the store still shows 0.1.9, remove this community store and add the same address again. Do the same when Autarki is missing from the list, or when an install fails after you update to umbrelOS 2.0, so Umbrel downloads the current list.
 
-This listing is version 0.1.9. Umbrel uses that version to offer the update. A wallet from 0.1.8 stays.
+This listing is version 0.1.10. Umbrel uses that version to offer the update. A wallet from 0.1.9 stays.
 
 Umbrel opens the page on port **8473**. The program listens on port **4173** inside the app.
 
@@ -112,8 +112,8 @@ Each line ends in `OK` when that file matches. A partial download does not.
 
 | Program | SHA-256 |
 | --- | --- |
-| `bin/autarki-amd64` | `b56a97b08ef263fe17d12b26aba53b0ed857c83c4680b2f8f2780f9839beeb47` |
-| `bin/autarki-arm64` | `f696bc94676efb61a04e1706f0b9a5373e703956a419ef7199f2de31b7ca9e87` |
+| `bin/autarki-amd64` | `c9e83a04d188d83fb409d5d99aa54814addb6a6fe4c0425c46c2b8f58b35a72c` |
+| `bin/autarki-arm64` | `a262bd50f810e0d2b999cf58c221210880cee6f7a867f98cf9ae4550bf626066` |
 
 ## First sale
 
