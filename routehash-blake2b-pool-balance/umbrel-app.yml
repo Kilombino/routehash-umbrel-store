@@ -2,10 +2,10 @@ manifestVersion: 1.1
 id: routehash-blake2b-pool-balance
 category: bitcoin
 name: Blake2b Pool Balance
-version: "0.1.4"
+version: "0.1.5"
 tagline: Keeps one Blake2b pool from growing past the share you will help it hold
 description: >-
-  Beta. A live Umbrel install is not confirmed yet. This listing is version 0.1.4. It installs on umbrelOS 1.x and umbrelOS 2.0. It is the same app as 0.1.3, so an update keeps the saved chooser. Umbrel builds it on the machine. A Raspberry Pi builds the arm64 image. Umbrel Home and Umbrel Pro are Intel and build the amd64 image.
+  Beta. A live Umbrel install is not confirmed yet. This listing is version 0.1.5. It installs on umbrelOS 1.x and umbrelOS 2.0. An update keeps the saved chooser. Umbrel builds it on the machine. A Raspberry Pi builds the arm64 image. Umbrel Home and Umbrel Pro are Intel and build the amd64 image.
 
 
   Already run a DATUM gateway on this Umbrel? This sits beside it. It does not
@@ -80,17 +80,10 @@ gallery:
   - https://raw.githubusercontent.com/RouteHash-com/umbrel-store/main/routehash-blake2b-pool-balance/gallery/1.png
 path: ""
 releaseNotes: >-
-  Version 0.1.4 keeps app id routehash-blake2b-pool-balance, so the data from
-  0.1.3 stays. The same app installs on umbrelOS 1.x and umbrelOS 2.0. Umbrel
-  Home and Umbrel Pro build the amd64 image. A Raspberry Pi builds the arm64
-  image. Gateway API address is a Local https address from the gateway Web
-  Interface. On this Umbrel, RouteHash Gateway is http://10.21.21.71:7152. The
-  Listen Port on the API screen stays inside the gateway. Admin Password is on
-  that API screen. The build compiles crcmod, which ships as source only. If
-  the page still shows the old gateway sentence, uninstall this app and install
-  it again. An update does not always replace the image recipe. It does not
-  replace RouteHash Gateway. The relay list starts with the RouteHash relay.
-  House Pool is already filled in as the last stop. Local max percent refuses
-  a number above 30. An empty local max percent stores 30.
+  Version 0.1.5 runs the container as user 1000:1000 instead of root, like
+  Autarki and RouteHash Gateway. On start, the data saved by 0.1.4 and
+  earlier is handed to that user, so it stays writable. The saved chooser
+  stays, and chooser.json keeps mode 600. App id, port 7156 and settings are
+  unchanged.
 submitter: RouteHash
 submission: https://app.routehash.com/pool/connect
